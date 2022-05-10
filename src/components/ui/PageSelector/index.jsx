@@ -1,4 +1,7 @@
 import IconButton from '../IconButton';
+import ArrowLeftIcon from '../icons/ArrowLeftIcon';
+import ArrowRightIcon from '../icons/ArrowRightIcon';
+import style from './PageSelector.module.css';
 
 const PageSelector = ({ page, setPage, totalPages }) => {
 	const isFirstPage = page === 1;

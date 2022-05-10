@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import {
-	filterUsersByActive,
+	filterActiveUsers,
 	filterUsersByName,
 	paginateUsers,
 	sortUsers
-} from './services/filterUsers';
+} from '../services/filterUsers';
 
 const fetchUsers = async (setData, setError, signal) => {
 	try {
@@ -24,7 +24,7 @@ const getUsersToDisplay = (
 	users,
 	{ search, onlyActive, sortBy, page, itemsPerPage }
 ) => {
-	let usersFiltered = filterUsersByActive(users, onlyActive);
+	let usersFiltered = filterActiveUsers(users, onlyActive);
 	usersFiltered = filterUsersByName(usersFiltered, search);
 	usersFiltered = sortUsers(usersFiltered, sortBy);
 
@@ -33,6 +33,8 @@ const getUsersToDisplay = (
 		page,
 		itemsPerPage
 	);
+
+	console.log(paginatedUsers);
 
 	return { paginatedUsers, totalPages };
 };
@@ -58,10 +60,10 @@ export const useUsers = filters => {
 		return () => controller.abort();
 	}, []);
 
-	const { paginateUsers, totalPages } = getUsersToDisplay(users.data, filters);
+	const { paginatedUsers, totalPages } = getUsersToDisplay(users.data, filters);
 
 	return {
-		users: paginateUsers,
+		users: paginatedUsers,
 		totalPages,
 		error: users.error,
 		loading: users.loading

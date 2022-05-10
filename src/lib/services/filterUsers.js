@@ -1,5 +1,5 @@
-import { SORT_OPTIONS } from '../../../constants/sortOptions';
-import { USER_ROLES } from '../../../constants/userRoles';
+import { SORT_OPTIONS } from '../../constants/sortOptions';
+import { USER_ROLES } from '../../constants/userRoles';
 
 export const filterUsersByName = (users, search) => {
 	if (!search) return [...users];
@@ -9,7 +9,7 @@ export const filterUsersByName = (users, search) => {
 	return users.filter(user => user.name.toLowerCase().includes(lowerSearch));
 };
 
-export const filterUsersByActive = (users, active) => {
+export const filterActiveUsers = (users, active) => {
 	if (!active) return [...users];
 
 	return users.filter(user => user.active);
