@@ -38,7 +38,7 @@ const UsersListFilters = ({
 					checked={onlyActive}
 					onChange={ev => setOnlyActive(ev.target.checked)}
 				/>
-				<p>Mostrar sólo activos</p>
+				<p>Sólo activos</p>
 			</div>
 		</div>
 	</div>
