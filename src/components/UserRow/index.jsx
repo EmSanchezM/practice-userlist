@@ -15,6 +15,7 @@ const UserRow = ({ name, username, role, active }) => {
 			<div className={style.role}>
 				<UserRole role={role} />
 			</div>
+			<div className={style.action}>Acciones</div>
 		</article>
 	);
 };
